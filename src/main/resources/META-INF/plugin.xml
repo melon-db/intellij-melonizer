@@ -1,0 +1,22 @@
+<idea-plugin>
+    <id>net.seesharpsoft.intellij.plugins.melonizer</id>
+    <name>SQLizer</name>
+    <vendor email="mail@seesharpsoft.net" url="https://github.com/SeeSharpSoft">GitHub</vendor>
+
+    <description><![CDATA[
+    Enable SQL operations on all kind of structured files, like CSV, XML, JSON, etc.<br>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>

@@ -1,4 +1,4 @@
-rootProject.name = 'melonizer'
+rootProject.name = 'sqlizer'
 
 sourceControl {
     gitRepository("https://github.com/melon-db/melon.git") {
