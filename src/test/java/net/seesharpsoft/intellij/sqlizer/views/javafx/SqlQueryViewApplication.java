@@ -2,27 +2,19 @@ package net.seesharpsoft.intellij.sqlizer.views.javafx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.seesharpsoft.commons.util.SharpIO;
 import net.seesharpsoft.intellij.plugins.sqlizer.views.javafx.SqlQueryViewController;
 import net.seesharpsoft.melon.Constants;
-import net.seesharpsoft.melon.jdbc.MelonConnection;
 import net.seesharpsoft.melon.jdbc.MelonDbDriver;
-import net.seesharpsoft.melon.jdbc.MelonDriver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
 
 public class SqlQueryViewApplication extends Application {
 
@@ -47,8 +39,6 @@ public class SqlQueryViewApplication extends Application {
         try (InputStream inputStream = SharpIO.createInputStream("/fxml/SqlQueryView.fxml")) {
             root = loader.load(inputStream);
         }
-        // Parent root = loader.load(getClass().getResource("/net/seesharpsoft/intellij/plugins/sqlizer/views/javafx/SqlQueryView.fxml"));
-        // Parent root = new Group();
 
         Scene scene = new Scene(root, 1000, 500);
         primaryStage.setTitle("SqlQueryView Standalone");

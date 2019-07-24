@@ -7,7 +7,6 @@ import net.seesharpsoft.commons.collection.Properties;
 import net.seesharpsoft.melon.config.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Getter(AccessLevel.PROTECTED)
 @Setter(AccessLevel.PROTECTED)
@@ -29,19 +28,19 @@ public class MelonBuilder {
         return getMelonConfig().getProperties();
     }
 
-    public MelonBuilder property(String key, String value) {
+    public <T extends MelonBuilder> T property(String key, Object value) {
         getProperties().put(key, value);
-        return this;
+        return (T)this;
     }
 
     public MelonConfig build() {
         return getMelonConfig();
     }
 
-    @Getter(AccessLevel.PROTECTED)
-    @Setter(AccessLevel.PROTECTED)
     public class SchemaBuilder extends MelonBuilder {
 
+        @Getter
+        @Setter(AccessLevel.PROTECTED)
         protected SchemaConfig schemaConfig;
 
         SchemaBuilder() {
@@ -78,10 +77,10 @@ public class MelonBuilder {
             return viewBuilder;
         }
 
-        @Getter(AccessLevel.PROTECTED)
-        @Setter(AccessLevel.PROTECTED)
         public class ViewBuilder extends SchemaBuilder {
 
+            @Getter
+            @Setter(AccessLevel.PROTECTED)
             private ViewConfig viewConfig;
 
             ViewBuilder() {
@@ -111,10 +110,10 @@ public class MelonBuilder {
             }
         }
 
-        @Getter(AccessLevel.PROTECTED)
-        @Setter(AccessLevel.PROTECTED)
         public class TableBuilder extends SchemaBuilder {
 
+            @Getter
+            @Setter(AccessLevel.PROTECTED)
             private TableConfig tableConfig;
 
             TableBuilder() {
@@ -151,10 +150,10 @@ public class MelonBuilder {
                 return storageBuilder;
             }
 
-            @Getter(AccessLevel.PROTECTED)
-            @Setter(AccessLevel.PROTECTED)
             public class StorageBuilder extends TableBuilder {
 
+                @Getter
+                @Setter(AccessLevel.PROTECTED)
                 private StorageConfig storageConfig;
 
                 StorageBuilder() {
@@ -179,10 +178,10 @@ public class MelonBuilder {
                 }
             }
 
-            @Getter(AccessLevel.PROTECTED)
-            @Setter(AccessLevel.PROTECTED)
             public class ColumnBuilder extends TableBuilder {
 
+                @Getter
+                @Setter(AccessLevel.PROTECTED)
                 private ColumnConfig columnConfig;
 
                 ColumnBuilder() {
